@@ -1,7 +1,8 @@
-// src/api/posts.js
+const API_URL = process.env.REACT_APP_API_URL;
+
 export async function getPosts() {
   try {
-    const response = await fetch("http://localhost:3000/api/posts");
+    const response = await fetch(`${API_URL}/posts`);
     const data = await response.json();
     return data;
   } catch (error) {
@@ -12,7 +13,7 @@ export async function getPosts() {
 
 export async function addPost(post) {
   try {
-    const response = await fetch("http://localhost:3000/api/posts", {
+    const response = await fetch(`${API_URL}/posts`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
